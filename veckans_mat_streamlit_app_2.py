@@ -79,8 +79,25 @@ def get_dictionary(user: int) -> dict:
     if user == 1:
         user_dict = {
                     'carbonara': ['pasta', 'bacon', 'ägg', 'grädde', 'parmesan'],
-                    'högrev med potatis': ['högrev', 'potatis'],
+                    'stuvade mackaroner m. köttbullar': ['köttbullar', 'mackaroner'],
                     'korvstroganoff': ['falukorv', 'ris', 'gröna ärtor', 'tomatpuré', 'passerade tomater', 'grädde'],
+                    'hamburgare': ['hamburgare', 'hamburgerbröd', 'hamburgerost'],
+                    'kycklingjärpar': ['ströbröd', 'ägg', 'soltorkade tomater', 'kycklingfärs', 'ris', 'potatis', 'matyoghurt', 'turkisk yoghurt', 'grekisk yoghurt', 'vitlök'],
+                    'ugnspannkaka': ['ägg', 'mjölk', 'morötter', 'äpple', 'bacon', 'smör'],
+                    'torsk m. äggsås': ['torsk', 'torskrygg', 'potatis', 'ärtor', 'ägg', 'smör', 'persilja'],
+                    'potatisplättar m. bacon': ['potatisbullar', 'bacon', 'lingonsylt', 'rårörda lingon', 'creme fraiche'],
+                    'kokossoppa m. bönor': ['purjolök', 'potatis', 'kokosmjölk', 'grönsaksbuljong', 'timjan', 'små vita bönor', 'pain riche', 'chiabatta'],
+                    'korv m. pasta': ['grillkorv', 'pasta', 'ketchup'],
+                    'köttfärssås m. pasta': ['köttfärs', 'passerade tomater', 'blandfärs', 'fond', 'pasta', 'tomatpuré', 'grädde', 'hönsbuljong', 'grönsaksbuljong', 'oxfond'],
+                    'pasta m. tomatsås': ['pasta', 'grädde', 'spaghetti', 'körsbärstomater', 'parmesan', 'basilika'],
+                    'pyttipanna': ['ägg', 'pyttipanna', 'inlagda rödbetor'],
+                    'fiskbullar m. ris': ['ris', 'fiskbullar'],
+                    'köttbullar m. potatis': ['köttbullar', 'gräddsås', 'brunsås', 'potatis', 'svartvinbärsgelé'],
+                    'ost och skicksås': ['rökt skinka', 'rökt skinka, strimlad', 'pasta', 'ost', 'ärtor'],
+                    'renskavsgryta': ['renskav', 'hjortskav', 'grädde', 'svartvinbärssaft', 'oxfond', 'grädde', 'lingon', 'svartvinbärsgéle', 'persilja'],
+                    'blodpudding m. potatis': ['blodpudding', 'lingonsylt', 'rårörda lingon', 'potatis'],
+                    'kycklingsallad': ['tärnad kyckling', 'rhode islandsås', 'pasta', 'grönsaker', 'majs'],
+                    'hawaiikassler m. ananas': ['kassler', 'grädde', 'ananas', 'ris', 'purjolök', 'kycklingfond', 'ost', 'persilja'],
                     }
         
     else:
