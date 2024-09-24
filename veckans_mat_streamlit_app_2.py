@@ -53,8 +53,14 @@ def match_recipe(data: dict, user_dict: dict) -> dict:
                         current_recipe_list.append(value)
         
         veckans_recept_förslag.update({key: current_recipe_list})
+        
+    clean_veckans_recept_förslag = dict()
+        
+    for key, val in veckans_recept_förslag.items():
+        if len(val) > 0:
+            clean_veckans_recept_förslag[key] = val
     
-    return veckans_recept_förslag
+    return clean_veckans_recept_förslag
 
 def check_connection(password: str) -> bool:
     """Function to simply check that the password works"""
