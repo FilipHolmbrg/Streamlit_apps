@@ -220,7 +220,7 @@ def get_offers(password: str, store_no: int, user_dict: dict) -> dict:
     return veckans_recept_förslag
 
 ### Building Streamlit Application ###
-st.title("View store offers based on user's recipies")
+st.title("View store offers by recipies")
 
 # Password input
 # password_input = st.text_input("Enter the secret password:", type="password")
@@ -235,13 +235,15 @@ if password_bool == True:
     store_one_offers = get_offers('u41c_Y', 1, user_one)
     store_two = {'Coming': 'to', 'app': 'soon!'}
     
-    st.subheader("Choose User and Store")
+    st.subheader("Choose User's recipy book")
     
     # Use checkboxes to allow multiple selections
     show_user_one = st.checkbox('Show Filips recept')
     show_user_two = st.checkbox("Show Granne 1's recept")
-    show_store_one = st.checkbox("Show Willy's Landvetter's offers'")
-    show_store_two = st.checkbox('Show Store Two offers')
+    
+    st.subheader("Choose Store")
+    show_store_one = st.checkbox("Willy's Landvetter's offers")
+    show_store_two = st.checkbox('Store Two offers')
 
 #     # Display the chosen user dictionary
 #     if show_user_one:
