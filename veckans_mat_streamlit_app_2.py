@@ -238,8 +238,8 @@ if password_bool == True:
     st.subheader("Choose User's recipy book")
     
     # Use checkboxes to allow multiple selections
-    show_user_one = st.checkbox('Show Filips recept')
-    show_user_two = st.checkbox("Show Granne 1's recept")
+    show_user_one = st.checkbox('Filips recept')
+    show_user_two = st.checkbox("Granne 1's recept")
     
     st.subheader("Choose Store")
     show_store_one = st.checkbox("Willy's Landvetter's offers")
@@ -261,6 +261,7 @@ if password_bool == True:
 #     st.warning("Please enter the correct password to view the data.")
 
     # Button to display the selected data
+    st.subheader("Get results")
     if st.button('Show recipies and offers'):
         # Display user data if selected
         # if show_user_one:
