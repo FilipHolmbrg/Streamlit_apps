@@ -8,7 +8,7 @@ import pandas as pd
 
 # Define functions:
 def fetch_id(store_name: str, password: str, store_no: int) -> str:
-    
+        """Fetch id for store which updates every week"""
         headers = {
                     'Content-Type': 'application/json',  # Non required argument
                     'X-Api-Key': password  # Using X-Api-Key header as required
@@ -16,7 +16,6 @@ def fetch_id(store_name: str, password: str, store_no: int) -> str:
         if store_no == 1:
             url = "https://ereklamblad.se/api/squid/v2/dealerfront?r_lat=57.694554&r_lng=12.206504&r_radius=2500&limit=12&order_by=name&types=paged%2Cincito"
 
-        """Fetch id for store which updates every week"""
         # Make a request to the API
         response = requests.get(url, headers=headers)
         # Ensure the request was successful
@@ -58,6 +57,7 @@ def match_recipe(data: dict, user_dict: dict) -> dict:
     return veckans_recept_förslag
 
 def check_connection(password: str) -> bool:
+    """Function to simply check that the password works"""
     #random url that worked at the current time
     url = "https://ereklamblad.se/api/squid/v2/dealerfront?r_lat=57.694554&r_lng=12.206504&r_radius=2500&limit=12&order_by=name&types=paged%2Cincito"
     headers = {
@@ -75,6 +75,7 @@ def check_connection(password: str) -> bool:
     return my_response
 
 def get_dictionary(user: int) -> dict:
+    """Function to get the users dictionary"""
     if user == 1:
         user_dict = {
                     'carbonara': ['pasta', 'bacon', 'ägg', 'grädde', 'parmesan'],
@@ -219,9 +220,7 @@ def get_offers(password: str, store_no: int, user_dict: dict) -> dict:
     return veckans_recept_förslag
 
 ### Building Streamlit Application ###
-st.write(check_connection('u41c_Y'))
-
-st.title('User and Store Dictionary Viewer')
+st.title("View store offers based on user's recipies")
 
 # Password input
 # password_input = st.text_input("Enter the secret password:", type="password")
@@ -239,22 +238,40 @@ if password_bool == True:
     st.subheader("Choose User and Store")
     
     # Use checkboxes to allow multiple selections
-    show_user_one = st.checkbox('Show User One')
-    show_user_two = st.checkbox('Show User Two')
-    show_store_one = st.checkbox('Show Store One')
-    show_store_two = st.checkbox('Show Store Two')
+    show_user_one = st.checkbox('Show Filips recept')
+    show_user_two = st.checkbox("Show Granne 1's recept")
+    show_store_one = st.checkbox("Show Willy's Landvetter's offers'")
+    show_store_two = st.checkbox('Show Store Two offers')
 
-    # Display the chosen user dictionary
-    if show_user_one:
-        st.write("User One Data:", user_one)
-    if show_user_two:
-        st.write("User Two Data:", user_two)
+#     # Display the chosen user dictionary
+#     if show_user_one:
+#         st.write("User One Data:", user_one)
+#     if show_user_two:
+#         st.write("User Two Data:", user_two)
     
-    # Display the chosen store dictionary
-    if show_store_one:
-        st.write("Store One Data:", store_one_offers)
-    if show_store_two:
-        st.write("Store Two Data:", store_two)
+#     # Display the chosen store dictionary
+#     if show_store_one:
+#         st.write("Willy's Landvetter's offers:", store_one_offers)
+#     if show_store_two:
+#         st.write("Store Two Data:", store_two)
 
-else:
-    st.warning("Please enter the correct password to view the data.")
+# else:
+#     st.warning("Please enter the correct password to view the data.")
+
+    # Button to display the selected data
+    if st.button('Show recipies and offers'):
+        # Display user data if selected
+        # if show_user_one:
+        #     st.subheader("User One Recipes:")
+        #     st.table(user_one)  # Show as a table
+        # if show_user_two:
+        #     st.subheader("User Two Recipes:")
+        #     st.table(user_two)  # Show as a table
+
+        # Display store data if selected
+        if show_store_one:
+            st.subheader("Willy's Landvetter Offers:")
+            st.table(store_one_offers)  # Show as a table
+        if show_store_two:
+            st.subheader("Store Two Offers:")
+            st.table(store_two)  # Show as a table
